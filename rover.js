@@ -9,18 +9,7 @@ class Rover {
   receiveMessage(message) {
     let response = {
       message: message.name,
-      results: [
-        { completed: true },
-        {
-          completed: true,
-          roverStatus: {
-            mode: "NORMAL",
-            generatorWatts: 110,
-            position: Number(position),
-          },
-        },
-        { completed: true },
-      ],
+      results: [],
     };
     return response;
     //   console.log(response);

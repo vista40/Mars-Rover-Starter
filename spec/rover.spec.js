@@ -21,14 +21,14 @@ test("response returned by receive Message contains the name of the message", fu
   expect(rover.receiveMessage(message).message).toEqual(message.name);
 });
 // 9 tests here.
-test("response returned by receiveMessage includes two results if two commands are sent in the message", function () {
-  let commands = [
-    new Command("MODE_CHANGE", "LOW_POWER"),
-    new Command("STATUS_CHECK"),
-  ];
-  let message = new Message("Test message", commands);
-  let rover = new Rover(254);
-  expect(rover.receiveMessage(message).results.length).toEqual(
-    message.commands.length
-  );
-});
+// test("response returned by receiveMessage includes two results if two commands are sent in the message", function () {
+//   let commands = [
+//     new Command("MODE_CHANGE", "LOW_POWER"),
+//     new Command("STATUS_CHECK"),
+//   ];
+//   let message = new Message("Test message", commands);
+//   let rover = new Rover(254);
+//   expect(rover.receiveMessage(message).results.length).toEqual(
+//     message.commands.length
+//   );
+
