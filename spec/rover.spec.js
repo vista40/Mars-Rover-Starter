@@ -32,3 +32,22 @@ test("response returned by receiveMessage includes two results if two commands a
     message.commands.length
   );
 });
+// 10 tests here.
+test("responds correctly to the status check command", function () {
+  let commands = [
+    new Command("MODE_CHANGE", "LOW_POWER"),
+    new Command("STATUS_CHECK"),
+  ];
+  let message = new Message("Test message", commands);
+  let rover = new Rover(254);
+  expect(rover.receiveMessage(message).results).toEqual([
+    { completed: true },
+    {
+      completed: true,
+      roverStatus: { generatorWatts: 110, mode: "NORMAL", position: 254 },
+    },
+  ]);
+});
+
+//1. I want the "status check" command in message.command to correspond with the correct response message in rover.receive(message).results. '
+// response message in rover.receive(message).results.

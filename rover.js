@@ -14,7 +14,7 @@ class Rover {
         roverStatus: {
           mode: "NORMAL",
           generatorWatts: 110,
-          position: 87382098,
+          position: this.position, //Is this right? Or should it be Number()
         },
       },
       { completed: true },
@@ -26,14 +26,19 @@ class Rover {
     for (let i = 0; i < message.commands.length; i++) {
       response.results.push(resultsArray[i]);
     }
+    for (let i = 0; i < message.commands.length; i++) {
+      if (message.commands[i] === "MOVE")
+        response.results.push(resultsArray[0]);
+    }
+    for (let i = 0; i < message.commands.length; i++) {
+      if (message.commands[i] === "STATUS_CHECK")
+        response.results.push(resultsArray[1]);
+    }
+    for (let i = 0; i < message.commands.length; i++) {
+      if (message.commands[i] === "MODE_CHANGE")
+        response.results.push(resultsArray[2]);
+    }
     return response;
   }
 }
-
-//   console.log(response);
-//   // let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
-//   // let message = new Message('Test message with two commands', commands);
-//   // let rover = new Rover(98382);    // Passes 98382 as the rover's position.
-// }
-
 module.exports = Rover;
