@@ -48,6 +48,41 @@ test("responds correctly to the status check command", function () {
     },
   ]);
 });
+// //11 tests here.
+test("responds correctly to the mode change command", function () {
+  // let commandTypesArray = [MOVE, STATUS_CHECK, MODE_CHANGE];
+
+  let commands = [new Command("MODE_CHANGE", "LOW_POWER")];
+  let message = new Message("Test message", commands);
+  let rover = new Rover(254);
+  //11.a tests here
+  expect(rover.receiveMessage(message).results).toEqual([{ completed: true }]);
+  //11.b tests here
+  expect(rover.mode).toEqual("LOW_POWER");
+});
+//12 tests here.
+// test("responds with a false completed value when attempting to move in LOW_POWER mode", function () {
+//   let commands = [new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE")];
+//   let message = new Message("Test message", commands);
+//   let rover = new Rover(254);
+//   expect(rover.receiveMessage(message).results).toEqual([
+//     { completed: false },
+//     { completed: true },
+//   ]);
+//----------------------------------------------------------------------
+//     // {
+//     //   completed: true,
+//     //   roverStatus: { generatorWatts: 110, mode: "LOW_POWER", position: 254 },
+//     // },
+//   ]);
+//   // expect(rover.receiveMessage(message).results).toEqual([
+//   //   { completed: true },
+//   //   // {
+//   //   //   completed: true,
+//   //   //   roverStatus: { generatorWatts: 110, mode: "LOW_POWER", position: 254 },
+//   //   // },
+//   // ]);
+// });
 
 //1. I want the "status check" command in message.command to correspond with the correct response message in rover.receive(message).results. '
 // response message in rover.receive(message).results.
