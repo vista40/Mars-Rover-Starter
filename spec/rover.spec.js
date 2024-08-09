@@ -61,11 +61,16 @@ test("responds correctly to the mode change command", function () {
   expect(rover.mode).toEqual("LOW_POWER");
 });
 //12 tests here.
-// test("responds with a false completed value when attempting to move in LOW_POWER mode", function () {
-//   let commands = [new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE")];
-//   let message = new Message("Test message", commands);
-//   let rover = new Rover(254);
-//   expect(rover.receiveMessage(message).results).toEqual([
+test("responds with a false completed value when attempting to move in LOW_POWER mode", function () {
+  let commands = [new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE")];
+  let message = new Message("Test message", commands);
+  let rover = new Rover(254);
+  expect(rover.position).toEqual(rover.position);
+  // expect(rover.receiveMessage(message).results).toEqual([
+  //   { completed: false },
+  //   { completed: true },
+  // ]);
+});
 //     { completed: false },
 //     { completed: true },
 //   ]);

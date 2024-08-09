@@ -40,10 +40,12 @@ class Rover {
         response.results.push(resultsArray[2]);
       if (message.commands[i].value === "LOW_POWER") {
         this.mode = "LOW_POWER";
-        //test 12 here:
-        //   this.position = position;
-        //   resultsArray[0].completed = false;
-        //   response.results.push(resultsArray[0]);
+        //test 12b here:
+        this.position = this.position;
+        // test 12a here
+        // resultsArray[0].completed = false;
+        // response.results.push(resultsArray[0]);
+
         // }
       }
       return response;
